@@ -88,8 +88,8 @@
         // These two keys MUST match the live Zoho webform ("QR Redirect Test").
         // The previous keys pointed at a different/deleted form, so every scan
         // returned a success-looking 302 but created no lead.
-        xnQsjsdp: "d414a383a6acc3069d2e05d6e377d397b20ac1dd4f5d92fd23f941cf81482de6",
-        xmIwtLD: "e1bf2ac73c99d16af6c2ea1cb35349380e332fa0dfb0cb829d1735d98ff6e3b1f0d698384193c56b84967fc8ebdede48",
+        xnQsjsdp: "daaad91f80563cbd57d868c1eb03f5b718b556787da73c73afaeee1cf99a5ebc",
+        xmIwtLD: "baa4c528bd6fb7f0097884f8bac96fd3accd270eae9bf32a932b3d93166b7530937465f5707e1a931f81867a2a8f5691",
         actionType: "TGVhZHM=",
         // Redirect the iframe to exactly this same page to perfectly bypass ALL iframe block policies
         returnURL: window.location.origin + window.location.pathname,
@@ -104,6 +104,7 @@
         // goes in the free-text Description instead.
         Description: `Device: ${deviceType} | Store: ${storeId} | Scanned: ${new Date().toISOString()}`,
         "Store ID": storeId,
+        Store: storeId,
         Device: deviceType,
         
       };
