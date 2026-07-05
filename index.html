@@ -102,7 +102,9 @@
         // valid options are predefined store ids. An arbitrary value fails
         // validation and makes Zoho silently reject the whole lead. Store info
         // goes in the free-text Description instead.
-        Description: `Device: ${deviceType} | Store: ${storeId} | Scanned: ${new Date().toISOString()}`
+        Description: `Device: ${deviceType} | Store: ${storeId} | Scanned: ${new Date().toISOString()}`,
+        Device: '${deviceType}',
+        "Store Id": '${storeId}'
       };
 
       for (const [key, value] of Object.entries(inputs)) {
