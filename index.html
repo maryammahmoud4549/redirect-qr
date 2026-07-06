@@ -45,11 +45,11 @@
 <body>
   <div class="loader">
     <div class="spinner"></div>
-    <p>Redirecting you to the App Store...</p>
+    <p>Redirecting you to the Store...</p>
   </div>
   <script>
     window.onload = function () {
-      // If we are currently inside the hidden iframe doing the returnURL redirect, halt execution to prevent infinite loop
+     
       if (window.name === "zoho_iframe") {
         return;
       }
@@ -85,23 +85,17 @@
       form.style.display = "none";
 
       const inputs = {
-        // These two keys MUST match the live Zoho webform ("QR Redirect Test").
-        // The previous keys pointed at a different/deleted form, so every scan
-        // returned a success-looking 302 but created no lead.
+
         xnQsjsdp: "daaad91f80563cbd57d868c1eb03f5b718b556787da73c73afaeee1cf99a5ebc",
         xmIwtLD: "baa4c528bd6fb7f0097884f8bac96fd3accd270eae9bf32a932b3d93166b7530937465f5707e1a931f81867a2a8f5691",
         actionType: "TGVhZHM=",
-        // Redirect the iframe to exactly this same page to perfectly bypass ALL iframe block policies
+
         returnURL: window.location.origin + window.location.pathname,
-        // Company + Last Name are the form's mandatory fields
         Company: "Sanaddak QR",
         "Last Name": `App User (${storeId})`,
-        // Unique per scan so Zoho's Email-based de-duplication doesn't drop repeat scans
+
         Email: uniqueEmail,
-        // NOTE: do NOT send "Lead Source" — it is a restricted dropdown whose only
-        // valid options are predefined store ids. An arbitrary value fails
-        // validation and makes Zoho silently reject the whole lead. Store info
-        // goes in the free-text Description instead.
+
         Description: `Device: ${deviceType} | Store: ${storeId} | Scanned: ${new Date().toISOString()}`,
         "Store ID": storeId,
         Store: storeId,
@@ -127,10 +121,9 @@
 
       console.log("Form submitted to Zoho CRM via iframe.");
 
-      // Wait a short moment to ensure the submission goes through, then redirect the TOP window safely
       setTimeout(() => {
         window.location.href = storeUrl;
-      }, 1000);
+      }, 200);
     };
   </script>
 </body>
